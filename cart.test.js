@@ -12,6 +12,10 @@ describe('Cart Properties:', function(){
 });
 
 describe('Cart Methods:', function(){
+    afterEach(function(){
+        cart.cart = [];
+        cart.total = 0;
+    });
     test('addToCart() should add a car object to the cart array.', function(){
         cart.addToCart( cars[0] );
         cart.addToCart( cars[1] );
@@ -40,7 +44,7 @@ describe('Cart Methods:', function(){
     });
     test('removeFromCart() should decrease the total property.', function(){
         cart.addToCart(cars[0]);
-        cart.addToCart(cart[8]);
+        cart.addToCart(cars[8]);
         cart.addToCart(cars[2]);
 
         cart.removeFromCart(0, cars[0].price);
